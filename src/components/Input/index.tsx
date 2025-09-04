@@ -5,9 +5,9 @@ type PropsInput = TextInputProps & {
   icon?: React.ReactNode;
 };
 
-export function Input({ icon, ...rest }: PropsInput) {
+export function Input({ icon, style, ...rest }: PropsInput) {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <TextInput style={styles.input} {...rest} />
       <View style={styles.iconInput}>{icon}</View>
     </View>
