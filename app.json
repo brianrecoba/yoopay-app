@@ -7,6 +7,7 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "scheme": "clone-yoopay",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
@@ -25,8 +26,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [
-      "expo-font"
-    ]
+    "plugins": ["expo-font", "expo-router"]
   }
 }
