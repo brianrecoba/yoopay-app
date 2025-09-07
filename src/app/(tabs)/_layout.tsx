@@ -1,31 +1,33 @@
 import { Tabs } from "expo-router";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { theme } from "@/styles/theme";
+import { View, Dimensions } from "react-native";
 
+const { width } = Dimensions.get("window");
+const TAB_WIDTH = 261;
 export default function Layout() {
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
         tabBarItemStyle: {
-          alignItems: "center",
-          alignSelf: "center",
           top: 10,
+          borderRadius: 20,
+          marginHorizontal: 5,
         },
+
+        animation: "fade",
         tabBarStyle: {
           backgroundColor: theme.colors.gray,
           position: "absolute",
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          bottom: 1,
+          bottom: 30,
           borderRadius: 30,
           height: 60,
-          width: 261,
-          left: "50%",
+          width: TAB_WIDTH,
+          marginLeft: (width - TAB_WIDTH) / 2,
           paddingHorizontal: 14,
         },
-        tabBarActiveBackgroundColor: theme.colors.primary,
+        tabBarActiveBackgroundColor: "transparent",
 
         tabBarShowLabel: false,
       }}
@@ -34,8 +36,24 @@ export default function Layout() {
         name="index"
         options={{
           title: "Home",
-          tabBarIcon: () => (
-            <AntDesign name="home" size={24} color={theme.colors.dark} />
+
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                backgroundColor: focused ? theme.colors.primary : "transparent",
+                borderRadius: 30,
+                width: 44,
+                height: 44,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <AntDesign
+                name="home"
+                size={24}
+                color={focused ? "#fff" : theme.colors.dark}
+              />
+            </View>
           ),
         }}
       />
@@ -43,20 +61,46 @@ export default function Layout() {
         name="box/index"
         options={{
           title: "Box",
-          tabBarIcon: () => (
-            <AntDesign name="gift" size={24} color={theme.colors.dark} />
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                backgroundColor: focused ? theme.colors.primary : "transparent",
+                borderRadius: 30,
+                width: 44,
+                height: 44,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <AntDesign
+                name="gift"
+                size={24}
+                color={focused ? "#fff" : theme.colors.dark}
+              />
+            </View>
           ),
         }}
       />
       <Tabs.Screen
         name="notification/index"
         options={{
-          tabBarIcon: () => (
-            <Ionicons
-              name="notifications-outline"
-              size={24}
-              color={theme.colors.dark}
-            />
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                backgroundColor: focused ? theme.colors.primary : "transparent",
+                borderRadius: 30,
+                width: 44,
+                height: 44,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Ionicons
+                name="notifications-outline"
+                size={24}
+                color={focused ? "#fff" : theme.colors.dark}
+              />
+            </View>
           ),
         }}
       />
@@ -64,12 +108,23 @@ export default function Layout() {
         name="settings/index"
         options={{
           title: "Configurações",
-          tabBarIcon: () => (
-            <Ionicons
-              name="settings-outline"
-              size={24}
-              color={theme.colors.dark}
-            />
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                backgroundColor: focused ? theme.colors.primary : "transparent",
+                borderRadius: 30,
+                width: 44,
+                height: 44,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Ionicons
+                name="settings-outline"
+                size={24}
+                color={focused ? "#fff" : theme.colors.dark}
+              />
+            </View>
           ),
         }}
       />
