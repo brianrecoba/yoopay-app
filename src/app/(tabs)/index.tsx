@@ -20,6 +20,9 @@ import { CardButton } from "@/components/CardButton";
 import { cards } from "@/data/cards";
 import { Card } from "@/components/Card";
 import { Input } from "@/components/Input";
+import { expenses } from "@/data/expenses";
+import Expense from "@/components/List";
+import { Separator } from "@/components/Separator";
 
 export default function HomeIndex() {
   const [fontsLoaded] = useFonts({
@@ -79,6 +82,20 @@ export default function HomeIndex() {
           placeholder="Procurar..."
         />
       </View>
+      <FlatList
+        data={expenses}
+        showsVerticalScrollIndicator={false}
+        ItemSeparatorComponent={() => <Separator color={theme.colors.gray} />}
+        renderItem={({ item }) => (
+          <Expense
+            name={item.name}
+            icon={item.icon}
+            day={item.day}
+            month={item.mounth}
+            price={item.price}
+          />
+        )}
+      />
     </SafeAreaView>
   );
 }
