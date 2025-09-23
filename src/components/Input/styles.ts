@@ -14,6 +14,7 @@ export const styles = StyleSheet.create({
   input: {
     fontFamily: theme.fonts.regular,
     fontSize: theme.fontSizes.md,
+    marginTop: 3,
   },
   iconInput: {},
 });

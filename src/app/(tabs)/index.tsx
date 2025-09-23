@@ -1,9 +1,11 @@
 import React from "react";
 import { ActivityIndicator, FlatList, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Feather } from "@expo/vector-icons";
 
 import { StyleSheet } from "react-native";
 import { theme } from "@/styles/theme";
+
 import {
   useFonts,
   Poppins_300Light,
@@ -70,10 +72,23 @@ export default function HomeIndex() {
         >
           Últ. Movimentações
         </Text>
-        <Input />
+        <Input
+          isleft={true}
+          style={styles.input}
+          icon={<Feather name="search" size={24} color={"#808080"} />}
+          placeholder="Procurar..."
+        />
       </View>
     </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  input: {
+    marginTop: 11,
+    height: 58,
+    borderWidth: 1,
+    borderColor: "#C9C9C9",
+    backgroundColor: "#FFF",
+  },
+});
