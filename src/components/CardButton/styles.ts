@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     gap: 4,
     marginTop: 24,
+    marginRight: 18,
   },
   title: {
     fontFamily: theme.fonts.regular,

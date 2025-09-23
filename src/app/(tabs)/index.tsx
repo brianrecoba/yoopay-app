@@ -1,5 +1,5 @@
 import React from "react";
-import { ActivityIndicator, ScrollView, View } from "react-native";
+import { ActivityIndicator, FlatList, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { StyleSheet } from "react-native";
@@ -17,6 +17,7 @@ import { CardButton } from "@/components/CardButton";
 
 import { cards } from "@/data/cards";
 import { Card } from "@/components/Card";
+import { Input } from "@/components/Input";
 
 export default function HomeIndex() {
   const [fontsLoaded] = useFonts({
@@ -39,33 +40,40 @@ export default function HomeIndex() {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
-      <View style={styles.container}>
+    <SafeAreaView
+      style={{ flex: 1, backgroundColor: "#fff", paddingHorizontal: 25 }}
+    >
+      <View>
         <HeaderHome
           name="Pâmela"
           img="https://plus.unsplash.com/premium_photo-1688572454849-4348982edf7d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Zm90byUyMGRvJTIwcGVyZmlsfGVufDB8fDB8fHww"
         />
         <Card />
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {cards.map((card) => (
-            <View key={card.id} style={{ marginRight: 18 }}>
-              <CardButton
-                icon={card.icon}
-                title={card.title}
-                onPress={() => console.log(`Você clicou em ${card.title}`)}
-              />
-            </View>
-          ))}
-        </ScrollView>
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          horizontal
+          data={cards}
+          renderItem={({ item }) => (
+            <CardButton
+              icon={item.icon}
+              title={item.title}
+              onPress={() => console.log("clicou")}
+            />
+          )}
+        />
+        <Text
+          style={{
+            fontFamily: theme.fonts.medium,
+            fontSize: 20,
+            marginTop: 34,
+          }}
+        >
+          Últ. Movimentações
+        </Text>
+        <Input />
       </View>
     </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    paddingHorizontal: 25,
-  },
-});
+const styles = StyleSheet.create({});
