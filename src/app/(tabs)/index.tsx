@@ -1,5 +1,5 @@
 import React from "react";
-import { ActivityIndicator, FlatList, Text, View } from "react-native";
+import { ActivityIndicator, FlatList, Image, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 
@@ -53,7 +53,7 @@ export default function HomeIndex() {
           name="Pâmela"
           img="https://plus.unsplash.com/premium_photo-1688572454849-4348982edf7d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Zm90byUyMGRvJTIwcGVyZmlsfGVufDB8fDB8fHww"
         />
-        <Card />
+        <Image source={require("../../assets/card-payment.png")} />
         <FlatList
           showsHorizontalScrollIndicator={false}
           horizontal
